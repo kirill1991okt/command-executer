@@ -1,12 +1,10 @@
+import { FfmpegExecutor } from './command/ffmpeg/ffmpeg.executor';
 import { PromptService } from './core/prompt/prompt.service';
+import { ConsoleLogger } from './out/console-logger/console-logger';
 
 class App {
   async run() {
-    const prompt = await new PromptService().input<number>(
-      'Введите число',
-      'number'
-    );
-    console.log(prompt);
+    new FfmpegExecutor(ConsoleLogger.getInstance()).execute();
   }
 }
 
